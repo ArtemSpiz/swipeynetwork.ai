@@ -633,7 +633,6 @@
 						currentStep++
 						showStep(currentStep)
 
-						// якщо дійшли до 6-ї карточки — запускаємо анімацію
 						if (currentStep === 6) {
 							const grLine = document.querySelector('.gr-line')
 							const checkingText = document.querySelector(
@@ -644,7 +643,6 @@
 							)
 
 							if (grLine) {
-								// Очистити стиль перед новою анімацією
 								grLine.style.width = '0%'
 								grLine.style.transition = 'width 1.5s linear'
 								setTimeout(() => {
@@ -680,11 +678,9 @@
 				continueBtn.addEventListener('click', e => {
 					e.preventDefault()
 
-					// ховаємо 7 картку
 					const step7 = document.querySelector('.container-steps-new._7')
 					if (step7) step7.style.display = 'none'
 
-					// показуємо форму
 					formContainer.style.display = 'flex'
 				})
 			}
