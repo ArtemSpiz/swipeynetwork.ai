@@ -2055,19 +2055,20 @@ body {
 		justify-content: center;
 		align-items: flex-end;
 		padding: 30px 16px;
+		padding-bottom: 70px;
 	}
 
 	.girl-absolute {
 		width: 50vw;
 		height: 60vw;
-		bottom: 112vw;
+		bottom: 118vw;
 		right: 45.55vw;
 	}
 
 	.girl-absolute._2 {
 		width: 60vw;
 		height: 60vw;
-		bottom: 112vw;
+		bottom: 118vw;
 		left: 42.5vw;
 	}
 
@@ -2082,13 +2083,14 @@ body {
 		border-radius: 7.63vw;
 		width: 87.79vw;
 		height: 100%;
-		justify-content: center;
+		justify-content: space-around;
 		gap: 20px;
 		padding: 20px;
 		position: relative;
+		height: 450px;
+		min-height: 450px;
 	}
 
-	.container-steps-new.big,
 	.container-steps-new.big._7 {
 		height: 100%;
 	}
@@ -2098,7 +2100,8 @@ body {
 		right: 50%;
 		top: 50%;
 		transform: translate(50%, -50%);
-		height: 250px;
+		height: 300px !important;
+		min-height: 300px;
 	}
 
 	.wrapper-steps-new {
