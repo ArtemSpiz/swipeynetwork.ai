@@ -639,25 +639,21 @@
 					const girlAbsolute = document.querySelector('.girl-absolute')
 					const girlAbsolute2 = document.querySelector('._2')
 
-					if (window.innerWidth < 479 && bgVideo) {
-						if (stepNumber >= 1 && stepNumber <= 5) {
-							girlAbsolute.style.display = 'none'
-							girlAbsolute2.style.display = 'none'
-							background.style.alignItems = 'center'
-							background.style.paddingBottom = '0'
-							bgVideo.style.display = 'block'
-							bgVideo.src = `videos/video${stepNumber}.mp4`
-							bgVideo.load()
-							bgVideo.play()
-						} else {
-							bgVideo.style.zIndex = '-4'
-							background.style.paddingBottom = '70px'
-							background.style.alignItems = 'flex-end'
-							girlAbsolute.style.display = 'flex'
-							girlAbsolute2.style.display = 'flex'
-							bgVideo.style.display = 'none'
-							document.querySelector('.background-new').style.background =
-								'linear-gradient(90deg, #8350cb, #fe6283)'
+					if (bgVideo) {
+						if (stepNumber >= 1 && stepNumber <= 8) {
+							const newSrc = `videos/video${stepNumber}.mp4`
+
+							if (bgVideo.src !== location.origin + '/' + newSrc) {
+								bgVideo.style.opacity = 0
+
+								bgVideo.src = newSrc
+								bgVideo.load()
+
+								bgVideo.oncanplay = () => {
+									bgVideo.style.opacity = 1
+									bgVideo.play()
+								}
+							}
 						}
 					}
 				}
@@ -725,23 +721,68 @@
 
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
-				const form = document.getElementById('swipey-form')
-				const emailInput = document.getElementById('email-2')
-				const passwordInput = document.getElementById('password-2')
+				const form = document.getElementById('email-form') // форма
+				const emailInput = document.getElementById('email-2') // інпут email
+				const passwordInput = document.getElementById('password-2') // інпут пароль
 
-				form.addEventListener('submit', e => {
-					e.preventDefault()
+				const getClickIdFromCookies = () => {
+					const match = document.cookie.match(/rtkclickid-store=([^;]+)/)
+					return match ? match[1] : null
+				}
 
-					const email = emailInput.value.trim()
-					const password = passwordInput.value.trim()
-					const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-
-					if (!isValidEmail || password.length < 1) {
-						alert('Enter valid email and password.')
+				const submitAccount = async (email, password) => {
+					const clickId = getClickIdFromCookies()
+					if (!clickId) {
+						alert('Click ID not found in cookies.')
 						return
 					}
 
-					console.log('Validated:', { email, password })
+					const utm = JSON.parse(localStorage.getItem('utm_data') || '{}')
+
+					try {
+						const response = await fetch(
+							'https://swipey.ai/api/v1/auth/pre-lander',
+							{
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json',
+									'x-api-key': '3b6b40c8-8b6d-4094-8e67-93fc80ae99cb',
+								},
+								body: JSON.stringify({
+									email,
+									password,
+									clickId,
+									...utm,
+								}),
+							}
+						)
+
+						const data = await response.json()
+
+						if (data.success && data.loginUrl) {
+							const redirectUrl = new URL(data.loginUrl)
+							window.location.href = redirectUrl.toString()
+						} else {
+							alert(data.message || 'Something went wrong.')
+						}
+					} catch (error) {
+						console.error('API error:', error)
+						alert('Failed to create account.')
+					}
+				}
+
+				form.addEventListener('submit', async e => {
+					e.preventDefault()
+					const email = emailInput.value.trim()
+					const password = passwordInput.value.trim()
+
+					const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+
+					if (!isValidEmail || password.length < 1) {
+						return
+					}
+
+					await submitAccount(email, password)
 				})
 			})
 		</script>
