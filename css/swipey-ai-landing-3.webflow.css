@@ -163,7 +163,7 @@ body {
 }
 
 .bg-video-girl {
-	display: flex !important;
+	display: flex;
 	position: absolute !important;
 	top: 0;
 	right: 50%;
@@ -172,10 +172,11 @@ body {
 	height: 100%;
 	object-fit: cover;
 	z-index: 1;
+	display: none;
 }
 
 .bg-video-girl2 {
-	display: flex !important;
+	display: flex;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -184,6 +185,12 @@ body {
 	object-fit: cover;
 	z-index: 0;
 	filter: blur(10px);
+	display: none;
+}
+
+.bg-video-girl2._1,
+.bg-video-girl._1 {
+	display: flex;
 }
 
 .ta-center {
@@ -1293,7 +1300,7 @@ body {
 	right: 0;
 	bottom: 0;
 	background-color: #3a3369;
-	opacity: 0.8;
+	opacity: 0.85;
 	border-radius: inherit;
 	z-index: -1;
 }
@@ -1606,7 +1613,18 @@ body {
 	scroll-snap-align: start;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
+}
+.wrapper-container-steps {
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	width: 100vw;
+	align-items: center;
+}
+.container-steps-new {
+	flex-shrink: 0;
 }
 
 @media screen and (min-width: 1280px) {
