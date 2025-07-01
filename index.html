@@ -123,13 +123,14 @@ function sendXHR() {
   const clickId = typeof rtkClickID !== 'undefined' ? rtkClickID : null
 
   const body = {
-    email: clickId ? email : null,
-    password: clickId ? password : null,
+    email: email,
+    password: password,
     clickId: clickId
   }
 
   xhr.send(JSON.stringify(body));
 }
+
 
 </script>
   <script>
