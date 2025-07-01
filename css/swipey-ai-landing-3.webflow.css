@@ -160,6 +160,10 @@ body {
 	display: grid;
 }
 
+.bg-video {
+	display: none !important;
+}
+
 .ta-center {
 	text-align: center;
 }
@@ -1218,7 +1222,7 @@ body {
 }
 
 .background-new {
-	background-image: linear-gradient(90deg, #8350cb, #fe6283);
+	background: linear-gradient(90deg, #8350cb, #fe6283);
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
@@ -1627,6 +1631,17 @@ body {
 }
 
 @media screen and (max-width: 479px) {
+	.bg-video {
+		display: flex !important;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 0;
+		filter: blur(5px);
+	}
 	.logo {
 		margin-bottom: 10px;
 		width: 165px;

@@ -67,6 +67,15 @@
 	</head>
 	<body class="body">
 		<div class="background-new">
+			<video
+				id="bg-video"
+				class="bg-video"
+				autoplay
+				muted
+				loop
+				playsinline
+			></video>
+
 			<div class="girl-absolute"></div>
 			<div class="girl-absolute _2"></div>
 			<div class="wrapper-container-steps">
@@ -624,7 +633,35 @@
 						'.container-steps-new._' + stepNumber
 					)
 					if (current) current.style.display = 'flex'
+
+					const bgVideo = document.getElementById('bg-video')
+					const background = document.querySelector('.background-new')
+					const girlAbsolute = document.querySelector('.girl-absolute')
+					const girlAbsolute2 = document.querySelector('._2')
+
+					if (window.innerWidth < 479 && bgVideo) {
+						if (stepNumber >= 1 && stepNumber <= 5) {
+							girlAbsolute.style.display = 'none'
+							girlAbsolute2.style.display = 'none'
+							background.style.alignItems = 'center'
+							background.style.paddingBottom = '0'
+							bgVideo.style.display = 'block'
+							bgVideo.src = `videos/video${stepNumber}.mp4`
+							bgVideo.load()
+							bgVideo.play()
+						} else {
+							bgVideo.style.zIndex = '-4'
+							background.style.paddingBottom = '70px'
+							background.style.alignItems = 'flex-end'
+							girlAbsolute.style.display = 'flex'
+							girlAbsolute2.style.display = 'flex'
+							bgVideo.style.display = 'none'
+							document.querySelector('.background-new').style.background =
+								'linear-gradient(90deg, #8350cb, #fe6283)'
+						}
+					}
 				}
+
 				showStep(currentStep)
 
 				const buttons = document.querySelectorAll('.buttons')
