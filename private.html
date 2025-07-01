@@ -68,8 +68,17 @@
 	<body class="body">
 		<div class="background-new">
 			<video
-				id="bg-video"
-				class="bg-video"
+				id="bg-video-girl"
+				class="bg-video-girl"
+				autoplay
+				muted
+				loop
+				playsinline
+			></video>
+
+			<video
+				id="bg-video-girl2"
+				class="bg-video-girl2"
 				autoplay
 				muted
 				loop
@@ -624,7 +633,7 @@
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
 				let currentStep = 1
-				const totalSteps = 8
+				const totalSteps = 9
 
 				const steps = document.querySelectorAll('.container-steps-new')
 				function showStep(stepNumber) {
@@ -634,17 +643,22 @@
 					)
 					if (current) current.style.display = 'flex'
 
-					const bgVideo = document.getElementById('bg-video')
+					const bgVideo = document.querySelector('.bg-video-girl')
+					const bgVideo2 = document.querySelector('.bg-video-girl2')
 					const background = document.querySelector('.background-new')
 					const girlAbsolute = document.querySelector('.girl-absolute')
 					const girlAbsolute2 = document.querySelector('._2')
 
-					if (bgVideo) {
+					if (bgVideo && bgVideo2) {
 						if (stepNumber >= 1 && stepNumber <= 8) {
 							const newSrc = `videos/video${stepNumber}.mp4`
 
-							if (bgVideo.src !== location.origin + '/' + newSrc) {
+							if (
+								bgVideo.src !== location.origin + '/' + newSrc &&
+								bgVideo2.src !== location.origin + '/' + newSrc
+							) {
 								bgVideo.style.opacity = 0
+								bgVideo2.style.opacity = 0
 
 								bgVideo.src = newSrc
 								bgVideo.load()
@@ -652,6 +666,14 @@
 								bgVideo.oncanplay = () => {
 									bgVideo.style.opacity = 1
 									bgVideo.play()
+								}
+
+								bgVideo2.src = newSrc
+								bgVideo2.load()
+
+								bgVideo2.oncanplay = () => {
+									bgVideo2.style.opacity = 1
+									bgVideo2.play()
 								}
 							}
 						}

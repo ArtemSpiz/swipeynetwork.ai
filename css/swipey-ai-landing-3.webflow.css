@@ -54,6 +54,8 @@ body {
 	padding-left: 20px;
 	padding-right: 20px;
 	display: flex;
+	position: relative;
+	z-index: 40;
 }
 
 .form-container.new {
@@ -160,7 +162,19 @@ body {
 	display: grid;
 }
 
-.bg-video {
+.bg-video-girl {
+	display: flex !important;
+	position: absolute !important;
+	top: 0;
+	right: 50%;
+	transform: translate(50%, 0);
+	width: auto;
+	height: 100%;
+	object-fit: cover;
+	z-index: 1;
+}
+
+.bg-video-girl2 {
 	display: flex !important;
 	position: absolute;
 	top: 0;
@@ -169,7 +183,7 @@ body {
 	height: 100%;
 	object-fit: cover;
 	z-index: 0;
-	filter: blur(5px);
+	filter: blur(10px);
 }
 
 .ta-center {
@@ -1257,7 +1271,7 @@ body {
 }
 
 .container-steps-new {
-	background-color: #3a3369;
+	position: relative;
 	border-radius: 1.56vw;
 	flex-flow: column;
 	justify-content: space-between;
@@ -1269,7 +1283,19 @@ body {
 	overflow: hidden;
 	box-shadow: 0 4px 20px #0006;
 	z-index: 55;
-	position: relative;
+}
+
+.container-steps-new::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #3a3369;
+	opacity: 0.8;
+	border-radius: inherit;
+	z-index: -1;
 }
 
 .container-steps-new._2 {
@@ -1565,6 +1591,24 @@ body {
 	font-size: 0.73vw;
 }
 
+.background-new,
+.wrapper-container-steps {
+	scroll-snap-type: y mandatory;
+	overflow-y: scroll;
+	justify-content: center;
+	height: 100vh;
+	scrollbar-width: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.container-steps-new {
+	scroll-snap-align: start;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 @media screen and (min-width: 1280px) {
 	.background.new {
 		background-image: url('../images/Create_Step-63.avif');
@@ -1639,7 +1683,7 @@ body {
 }
 
 @media screen and (max-width: 479px) {
-	.bg-video {
+	.bg-video-girl {
 		display: flex !important;
 		position: absolute;
 		top: 0;
