@@ -107,9 +107,7 @@ form.setAttribute("onsubmit", "sendXHR()")
 xhr.open("POST", "https://swipey.ai/api/v1/auth/pre-lander");
 xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 xhr.setRequestHeader("x-api-key", "9e3132a0-106a-410b-8e3a-c04aa0f298c3");
-const body = {
-  clickId: rtkClickID
-};
+
 xhr.onload = () => {
   if (xhr.readyState == 4 && xhr.status == 201) {
    responseJSON = JSON.parse(xhr.response);
@@ -120,10 +118,19 @@ xhr.onload = () => {
   }
 };
 function sendXHR() {
-	body.email = document.getElementById("email").value
-	body.password = document.getElementById("password").value
+  const email = document.getElementById("email").value
+  const password = document.getElementById("password").value
+  const clickId = typeof rtkClickID !== 'undefined' ? rtkClickID : null
+
+  const body = {
+    email: clickId ? email : null,
+    password: clickId ? password : null,
+    clickId: clickId
+  }
+
   xhr.send(JSON.stringify(body));
 }
+
 </script>
   <script>
 	var button = document.getElementById('google-sign')
