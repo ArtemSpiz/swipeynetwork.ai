@@ -37,6 +37,10 @@ body {
 	min-height: 100%;
 }
 
+.body.no-scroll {
+	touch-action: none;
+}
+
 .main {
 	flex-flow: row;
 	min-height: 100vh;
