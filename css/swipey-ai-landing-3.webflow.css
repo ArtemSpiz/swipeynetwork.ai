@@ -56,10 +56,7 @@ body {
 	display: flex;
 	position: relative;
 	z-index: 40;
-}
-
-.form-container.new {
-	display: none;
+	height: 100vh;
 }
 
 .swipey-form-c {
@@ -162,6 +159,15 @@ body {
 	display: grid;
 }
 
+.container-steps-new-wrapper {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+
 .bg-video-girl {
 	display: flex;
 	position: absolute !important;
@@ -172,7 +178,6 @@ body {
 	height: 100%;
 	object-fit: cover;
 	z-index: 1;
-	display: none;
 }
 
 .bg-video-girl2 {
@@ -185,12 +190,6 @@ body {
 	object-fit: cover;
 	z-index: 0;
 	filter: blur(10px);
-	display: none;
-}
-
-.bg-video-girl2._1,
-.bg-video-girl._1 {
-	display: flex;
 }
 
 .ta-center {
@@ -1305,37 +1304,15 @@ body {
 	z-index: -1;
 }
 
-.container-steps-new._2 {
-	display: none;
-}
-
-.container-steps-new._1 {
-	display: flex;
-}
-
-.container-steps-new._3,
-.container-steps-new._4,
-.container-steps-new._5,
-.container-steps-new._6 {
-	display: none;
-}
-
 .container-steps-new.small {
 	height: 22.81vw;
-}
-
-.container-steps-new.small._7,
-.container-steps-new.small._6 {
-	display: none;
 }
 
 .container-steps-new.big {
 	height: 37.92vw;
 }
 
-.container-steps-new.big._8,
-.container-steps-new.big._9,
-.container-steps-new.big._7 {
+.container-steps-new.big._8 {
 	display: none;
 }
 
@@ -1603,7 +1580,7 @@ body {
 	scroll-snap-type: y mandatory;
 	overflow-y: scroll;
 	justify-content: center;
-	height: 100vh;
+	height: 100%;
 	scrollbar-width: none;
 	display: flex;
 	flex-direction: column;
@@ -1701,16 +1678,12 @@ body {
 }
 
 @media screen and (max-width: 479px) {
+	.bg-video-girl2 {
+		filter: blur(0px);
+	}
+
 	.bg-video-girl {
-		display: flex !important;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		z-index: 0;
-		filter: blur(5px);
+		display: none;
 	}
 	.logo {
 		margin-bottom: 10px;
@@ -2139,7 +2112,7 @@ body {
 	.background-new {
 		justify-content: center;
 		align-items: center;
-		padding: 30px 16px;
+		padding: 0px 16px;
 	}
 
 	.girl-absolute {
@@ -2178,7 +2151,7 @@ body {
 	}
 
 	.container-steps-new.big._7 {
-		height: 100%;
+		height: max-content;
 	}
 
 	.container-steps-new.small._6 {
