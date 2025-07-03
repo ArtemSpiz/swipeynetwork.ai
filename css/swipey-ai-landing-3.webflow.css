@@ -2471,6 +2471,32 @@ body {
 		grid-area: span 1 / span 2 / span 1 / span 2;
 	}
 
+	.background-new {
+		padding: 0;
+	}
+
+	.container-steps-new {
+		right: auto;
+		position: absolute;
+		top: 50%;
+		transform: translate(0px, -50%);
+	}
+
+	.form-container {
+		right: auto;
+		top: auto;
+		transform: translate(0);
+		position: relative;
+	}
+
+	.video-scroll-wrapper {
+		scrollbar-width: none;
+	}
+
+	.container-steps-new-wrapper {
+		align-items: normal;
+	}
+
 	#w-node-f2d03085-69aa-c89a-9ec7-60bd905f951d-b2786206,
 	#w-node-f2d03085-69aa-c89a-9ec7-60bd905f951d-9843a195 {
 		grid-area: span 1 / span 1 / span 1 / span 1;
