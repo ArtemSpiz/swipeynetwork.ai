@@ -164,11 +164,9 @@ body {
 }
 
 .container-steps-new-wrapper {
-	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: relative;
 	width: 100%;
 }
 
@@ -1605,6 +1603,92 @@ body {
 	align-items: center;
 }
 .container-steps-new {
+	flex-shrink: 0;
+}
+
+.container-steps-new {
+	display: none;
+}
+
+.container-steps-new._1 {
+	display: flex;
+}
+
+.wrapper-container-steps {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.video-scroll-wrapper {
+	height: 100vh;
+	width: 100%;
+}
+
+.video-step {
+	height: 100vh;
+	width: 100%;
+	scroll-snap-align: start;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.form-container,
+.container-steps-new {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	display: none;
+}
+
+.container-steps-new._1 {
+	display: flex;
+}
+
+.container-steps-new.active {
+	display: flex;
+}
+
+.video-scroll-wrapper {
+	height: 100vh;
+	overflow-y: auto;
+	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
+}
+.video-step {
+	height: 100vh;
+	scroll-snap-align: start;
+	position: relative;
+}
+
+/* body.no-scroll {
+	overflow: hidden;
+	height: 100vh;
+} */
+
+.video-scroll-wrapper {
+	position: relative;
+	height: 100vh;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+}
+
+.video-step {
+	position: relative;
+	height: 100vh;
+	scroll-snap-align: start;
 	flex-shrink: 0;
 }
 
