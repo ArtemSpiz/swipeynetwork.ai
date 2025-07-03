@@ -749,6 +749,7 @@ body {
 	align-items: flex-end;
 	display: flex;
 	position: relative;
+	background-color: #1f0e3e;
 	overflow: hidden;
 }
 

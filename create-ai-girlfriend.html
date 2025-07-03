@@ -464,7 +464,7 @@
 								class="wrapper-im"
 							>
 								<img
-									src="images/Mask-group-32.avif"
+									src="images/Mask-group-32.png"
 									loading="lazy"
 									alt=""
 									class="im-100"
@@ -478,7 +478,7 @@
 								class="wrapper-im"
 							>
 								<img
-									src="images/Mask-group-33.avif"
+									src="images/Mask-group-33.png"
 									loading="lazy"
 									alt=""
 									class="im-100"
@@ -1499,5 +1499,166 @@
 				})
 			})()
 		</script>
+
+		<!-- <script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const stepTypeMap = {
+					_1: 'ethnicity',
+					_2: 'bodyType',
+					_3: 'breastSize',
+					_4: 'backView',
+					_5: 'legsType', // буде проігнорований
+					_6: 'personality',
+					_7: 'chatTopics',
+					_8: 'name',
+					_9: 'voice',
+				}
+
+				// 💡 UUID-мапа відповідно до Swipey API (hardcoded)
+				const UUID_MAP = {
+					ethnicity: {
+						Asian: '683082fb1a416410338d222f',
+						Latina: '683082fb1a416410338d2230',
+						White: '683082fb1a416410338d2231',
+					},
+					bodyType: {
+						Petite: '683082fb1a416410338d227b',
+						Curvy: '683082fb1a416410338d227c',
+						Fit: '683082fb1a416410338d227d',
+					},
+					breastSize: {
+						Small: '683082fb1a416410338d2282',
+						Medium: '683082fb1a416410338d2283',
+						Large: '683082fb1a416410338d2284',
+					},
+					personality: {
+						Shy: '683082fb1a416410338d2291',
+						Flirty: '683082fb1a416410338d2292',
+						Dominant: '683082fb1a416410338d2293',
+					},
+					chatTopics: {
+						Gaming: '683082fb1a416410338d22d2',
+						Art: '683082fb1a416410338d22d3',
+						Music: '683082fb1a416410338d22d4',
+					},
+					voice: {
+						Sweet: '683082fb1a416410338d22a9',
+						Deep: '683082fb1a416410338d22aa',
+					},
+				}
+
+				let selections = JSON.parse(localStorage.getItem('selections')) || {}
+				const stepContainers = document.querySelectorAll('.container-steps')
+
+				stepContainers.forEach(step => {
+					const stepClass = Array.from(step.classList).find(c =>
+						c.startsWith('_')
+					)
+					if (!stepClass) return
+					const stepType = stepTypeMap[stepClass]
+					if (!stepType) return
+
+					if (stepType === 'name') {
+						const input = step.querySelector('input[name="name"]')
+						const randomBtn = step.querySelector('.input.butt')
+						if (selections.name) input.value = selections.name
+
+						input?.addEventListener('input', () => {
+							selections.name = input.value.trim()
+							localStorage.setItem('selections', JSON.stringify(selections))
+						})
+
+						randomBtn?.addEventListener('click', () => {
+							const randomNames = [
+								'Anna',
+								'Sophia',
+								'Emily',
+								'Olivia',
+								'Julya',
+								'Mia',
+							]
+							const randomName =
+								randomNames[Math.floor(Math.random() * randomNames.length)]
+							input.value = randomName
+							selections.name = randomName
+							localStorage.setItem('selections', JSON.stringify(selections))
+						})
+
+						return
+					}
+
+					let optionSelector = '.wrapper-im'
+					if (stepType === 'voice') optionSelector = '.input.voice'
+					if (stepType === 'chatTopics') optionSelector = '.item'
+					if (stepType === 'personality')
+						optionSelector = '.wrapper-personality'
+
+					const optionWrappers = step.querySelectorAll(optionSelector)
+
+					optionWrappers.forEach(option => {
+						const numberElips = option.querySelector('.number-elips')
+						if (!numberElips) return
+						const value = numberElips.textContent.trim()
+						if (selections[stepType] === value) {
+							option.classList.add('selected')
+						}
+					})
+
+					optionWrappers.forEach(option => {
+						option.style.cursor = 'pointer'
+						option.addEventListener('click', () => {
+							const numberElips = option.querySelector('.number-elips')
+							const selectedValue = numberElips
+								? numberElips.textContent.trim()
+								: null
+							if (!selectedValue) return
+
+							selections[stepType] = selectedValue
+							localStorage.setItem('selections', JSON.stringify(selections))
+							optionWrappers.forEach(o => o.classList.remove('selected'))
+							option.classList.add('selected')
+						})
+					})
+				})
+
+				const continueBtn = document.querySelector('.button-click.big')
+				if (continueBtn) {
+					continueBtn.addEventListener('click', () => {
+						console.log('Зібрані вибори:', selections)
+
+						// 🎯 Формуємо об'єкт для Swipey
+						const attributes = {}
+
+						Object.keys(UUID_MAP).forEach(key => {
+							const val = selections[key]
+							const uuid = UUID_MAP[key]?.[val]
+							if (uuid) {
+								if (['personality', 'chatTopics'].includes(key)) {
+									attributes[key === 'chatTopics' ? 'hobbies' : key] = [uuid]
+								} else if (key === 'voice') {
+									attributes['defaultVoice'] = uuid
+								} else {
+									attributes[key] = uuid
+								}
+							}
+						})
+
+						const modelData = {
+							formBody: {
+								gender: 'Girls',
+								style: 'Anime',
+								attributes,
+							},
+						}
+
+						const base64 = btoa(
+							unescape(encodeURIComponent(JSON.stringify(modelData)))
+						)
+						const redirectURL = `https://swipey.ai/create-ai?model-params=${base64}`
+						window.location.href = redirectURL
+					})
+				}
+			})
+		</script> -->
 	</body>
 </html>
