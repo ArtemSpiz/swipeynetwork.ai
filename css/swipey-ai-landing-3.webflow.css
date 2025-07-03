@@ -60,7 +60,6 @@ body {
 	display: flex;
 	position: relative;
 	z-index: 40;
-	height: 100vh;
 }
 
 .swipey-form-c {
