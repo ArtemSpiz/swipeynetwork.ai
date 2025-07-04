@@ -951,8 +951,8 @@
 											loading="lazy"
 											sizes="100vw"
 											srcset="
-												images/Group-1171277896-1_1Group-1171277896-1.avif  500w,
-												images/Group-1171277896-1_1.avif                   1060w
+												images/Group-1171277896-1_1.avif  500w,
+												images/Group-1171277896-1_1.avif 1060w
 											"
 											alt=""
 											class="im-100 aling-left"
@@ -983,8 +983,8 @@
 											loading="lazy"
 											sizes="100vw"
 											srcset="
-												images/Group-1171277899-1_1Group-1171277899-1.avif  500w,
-												images/Group-1171277899-1_1.avif                   1060w
+												images/Group-1171277899-1_1.avif  500w,
+												images/Group-1171277899-1_1.avif 1060w
 											"
 											alt=""
 											class="im-100 aling-left"
@@ -1015,8 +1015,8 @@
 											loading="lazy"
 											sizes="100vw"
 											srcset="
-												images/Group-1171277897-1_1Group-1171277897-1.avif  500w,
-												images/Group-1171277897-1_1.avif                   1060w
+												images/Group-1171277897-1_1.avif  500w,
+												images/Group-1171277897-1_1.avif 1060w
 											"
 											alt=""
 											class="im-100 aling-left"
@@ -1047,8 +1047,8 @@
 											loading="lazy"
 											sizes="100vw"
 											srcset="
-												images/Group-1171277898-1_1Group-1171277898-1.avif  500w,
-												images/Group-1171277898-1_1.avif                   1060w
+												images/Group-1171277898-1_1.avif  500w,
+												images/Group-1171277898-1_1.avif 1060w
 											"
 											alt=""
 											class="im-100 aling-left"
@@ -1500,6 +1500,77 @@
 					}
 				})
 			})()
+		</script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', async () => {
+				let attributesMap = {}
+
+				try {
+					const response = await fetch(
+						'https://swipey.ai/api/v1/characters-attributes'
+					)
+					const result = await response.json()
+
+					if (!Array.isArray(result)) {
+						console.error('⚠️ Очікувався масив, але отримано:', result)
+						return
+					}
+
+					result.forEach(attr => {
+						if (!attr.values || !Array.isArray(attr.values)) return // ⛔️ пропустити якщо немає values
+
+						attributesMap[attr.name] = {}
+						attr.values.forEach(value => {
+							if (value.label && value._id) {
+								attributesMap[attr.name][value.label.trim()] = value._id
+							}
+						})
+					})
+				} catch (error) {
+					console.error('Помилка завантаження атрибутів:', error)
+					return
+				}
+
+				const userAnswers = {
+					gender: 'Girls',
+					style: 'Anime',
+					attributes: {},
+				}
+
+				document.querySelectorAll('.wrapper-im, .item').forEach(el => {
+					el.addEventListener('click', () => {
+						const stepContainer = el.closest('[data-attr]')
+						const label = el.querySelector('.number-elips')?.textContent?.trim()
+						const attrType = stepContainer?.dataset.attr
+
+						if (!label || !attrType || !attributesMap[attrType]) return
+
+						const id = attributesMap[attrType][label]
+						if (!id) return
+
+						if (['hobbies', 'personality', 'occupation'].includes(attrType)) {
+							if (!userAnswers.attributes[attrType])
+								userAnswers.attributes[attrType] = []
+							if (!userAnswers.attributes[attrType].includes(id)) {
+								userAnswers.attributes[attrType].push(id)
+							}
+						} else {
+							userAnswers.attributes[attrType] = id
+						}
+
+						el.classList.toggle('selected')
+					})
+				})
+
+				document.querySelector('.btnCont')?.addEventListener('click', () => {
+					const payload = { formBody: userAnswers }
+					const json = JSON.stringify(payload)
+					const base64 = btoa(unescape(encodeURIComponent(json)))
+					const url = `https://swipey.ai/create-ai?model-params=${base64}`
+					window.location.href = url
+				})
+			})
 		</script>
 	</body>
 </html>

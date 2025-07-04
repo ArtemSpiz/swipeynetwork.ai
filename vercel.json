@@ -1,10 +1,26 @@
 {
+	"cleanUrls": true,
+	"trailingSlash": false,
 	"redirects": [
 		{
 			"source": "/:path.html",
 			"destination": "/:path",
 			"permanent": true
+		},
+		{
+			"source": "/create-cumslut/",
+			"destination": "/create-cumslut",
+			"permanent": true
+		},
+		{
+			"source": "/create-ai-girlfriend/",
+			"destination": "/create-ai-girlfriend",
+			"permanent": true
+		},
+		{
+			"source": "/private/",
+			"destination": "/private",
+			"permanent": true
 		}
-	],
-	"cleanUrls": true
+	]
 }
