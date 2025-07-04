@@ -2471,6 +2471,10 @@ body {
 		grid-area: span 1 / span 2 / span 1 / span 2;
 	}
 
+	.form-private {
+		height: 100vh;
+	}
+
 	.background-new {
 		padding: 0;
 	}
