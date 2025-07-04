@@ -741,6 +741,7 @@ body {
 	display: flex;
 }
 
+.legs,
 .wrapper-im {
 	cursor: pointer;
 	border-radius: 1.25vw;
@@ -752,11 +753,13 @@ body {
 	overflow: hidden;
 }
 
+.legs.hover,
 .wrapper-im.hover {
 	opacity: 0.4;
 	transition: all 0.2s;
 }
 
+.legs.hover:hover,
 .wrapper-im.hover:hover {
 	opacity: 100;
 	color: #fc6896;
@@ -2046,6 +2049,7 @@ body {
 		flex-flow: row;
 	}
 
+	.legs,
 	.wrapper-im {
 		border-radius: 24px;
 	}

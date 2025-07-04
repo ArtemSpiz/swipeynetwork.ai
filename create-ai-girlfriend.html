@@ -189,7 +189,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-steps _1" data-attr="ethnicity">
+				<div class="container-steps _1" data-attr="Ethnicity">
 					<div class="wrapper-name">
 						<div class="arrow-back">
 							<div class="arrow">
@@ -290,7 +290,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-steps _2" data-attr="bodyType">
+				<div class="container-steps _2" data-attr="BodyType">
 					<div class="wrapper-name">
 						<div
 							data-w-id="ab0f3624-2154-fed7-528c-0ca56c43084c"
@@ -368,7 +368,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-steps _3" data-attr="breastSize">
+				<div class="container-steps _3" data-attr="BreastSize">
 					<div class="wrapper-name">
 						<div
 							data-w-id="f6526232-e15d-9bdf-b171-2926791f9e02"
@@ -396,7 +396,7 @@
 									class="im-100"
 								/>
 								<div class="absolute-name">
-									<div class="number-elips">Small</div>
+									<div class="number-elips">Small (B)</div>
 								</div>
 							</div>
 							<div
@@ -410,7 +410,7 @@
 									class="im-100"
 								/>
 								<div class="absolute-name">
-									<div class="number-elips">Medium</div>
+									<div class="number-elips">Medium (C)</div>
 								</div>
 							</div>
 							<div
@@ -424,7 +424,7 @@
 									class="im-100"
 								/>
 								<div class="absolute-name">
-									<div class="number-elips">Large</div>
+									<div class="number-elips">Large (D)</div>
 								</div>
 							</div>
 							<div
@@ -438,13 +438,13 @@
 									class="im-100"
 								/>
 								<div class="absolute-name">
-									<div class="number-elips">Huge</div>
+									<div class="number-elips">Huge (DD)</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="container-steps _4" data-attr="buttSize">
+				<div class="container-steps _4" data-attr="ButtSize">
 					<div class="wrapper-name">
 						<div
 							data-w-id="f501d8d1-584f-fda7-27c6-25e909f3b87b"
@@ -520,7 +520,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-steps _5" data-attr="">
+				<div class="container-steps _5">
 					<div class="wrapper-name">
 						<div
 							data-w-id="a915f803-5855-ac5c-f0be-c41df6619e9e"
@@ -539,7 +539,7 @@
 						<div class="grid-im row-2">
 							<div
 								data-w-id="a915f803-5855-ac5c-f0be-c41df6619ea8"
-								class="wrapper-im hover"
+								class="legs hover"
 							>
 								<img
 									src="images/Group-48095659.avif"
@@ -553,7 +553,7 @@
 							</div>
 							<div
 								data-w-id="a915f803-5855-ac5c-f0be-c41df6619ead"
-								class="wrapper-im hover"
+								class="legs hover"
 							>
 								<img
 									src="images/Mask-group-36.avif"
@@ -567,7 +567,7 @@
 							</div>
 							<div
 								data-w-id="a915f803-5855-ac5c-f0be-c41df6619eb2"
-								class="wrapper-im hover"
+								class="legs hover"
 							>
 								<img
 									src="images/Group-48095660.avif"
@@ -581,7 +581,7 @@
 							</div>
 							<div
 								data-w-id="a915f803-5855-ac5c-f0be-c41df6619eb7"
-								class="wrapper-im hover"
+								class="legs hover"
 							>
 								<img
 									src="images/Group-48095661.avif"
@@ -596,7 +596,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-steps _6" data-attr="personality">
+				<div class="container-steps _6" data-attr="Personality">
 					<div class="wrapper-name">
 						<div
 							data-w-id="a7dbd342-ef21-c5ce-4293-c7e27ef3d433"
@@ -685,7 +685,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-steps _7" data-attr="hobbies">
+				<div class="container-steps _7" data-attr="Hobby">
 					<div class="wrapper-name">
 						<div
 							data-w-id="ecdd94f5-284d-c077-8988-68b84417771d"
@@ -850,7 +850,7 @@
 						<div class="back"></div>
 					</div>
 				</div>
-				<div class="container-steps _8" data-attr="">
+				<div class="container-steps _8">
 					<div class="wrapper-name">
 						<div
 							data-w-id="f79414ac-ac08-d6c8-4f1f-2ec87e06f48d"
@@ -920,7 +920,7 @@
 						<div class="back"></div>
 					</div>
 				</div>
-				<div class="container-steps _9" data-attr="creatorVoice">
+				<div class="container-steps _9" data-attr="Voice">
 					<div class="wrapper-name">
 						<div
 							data-w-id="b833a77a-ba23-f145-d321-b8b22a91155d"
@@ -1464,7 +1464,6 @@
 					</div>
 					<a
 						data-w-id="e9ed7994-9bed-e54a-95b6-df88b00658f4"
-						href="https://swipey.ai/sign_up"
 						class="button all w-inline-block"
 					>
 						<div class="button-click btnCont big">
@@ -1504,71 +1503,111 @@
 
 		<script>
 			document.addEventListener('DOMContentLoaded', async () => {
-				let attributesMap = {}
-
-				try {
-					const response = await fetch(
-						'https://swipey.ai/api/v1/characters-attributes'
-					)
-					const result = await response.json()
-
-					if (!Array.isArray(result)) {
-						console.error('⚠️ Очікувався масив, але отримано:', result)
-						return
-					}
-
-					result.forEach(attr => {
-						if (!attr.values || !Array.isArray(attr.values)) return // ⛔️ пропустити якщо немає values
-
-						attributesMap[attr.name] = {}
-						attr.values.forEach(value => {
-							if (value.label && value._id) {
-								attributesMap[attr.name][value.label.trim()] = value._id
-							}
-						})
-					})
-				} catch (error) {
-					console.error('Помилка завантаження атрибутів:', error)
-					return
-				}
-
 				const userAnswers = {
 					gender: 'Girls',
 					style: 'Anime',
 					attributes: {},
 				}
 
-				document.querySelectorAll('.wrapper-im, .item').forEach(el => {
-					el.addEventListener('click', () => {
-						const stepContainer = el.closest('[data-attr]')
-						const label = el.querySelector('.number-elips')?.textContent?.trim()
-						const attrType = stepContainer?.dataset.attr
+				const voiceLabelMap = {
+					Genial: 'Voice 1',
+					Sexy: 'Voice 2',
+					Natural: 'Voice 3',
+					ASMR: 'Voice 4',
+				}
 
-						if (!label || !attrType || !attributesMap[attrType]) return
+				const multiValueAttrs = ['hobbies', 'personality', 'occupation']
+				let attributesMap = {}
 
-						const id = attributesMap[attrType][label]
-						if (!id) return
+				try {
+					const response = await fetch(
+						'https://swipey.ai/api/v1/characters-attributes'
+					)
+					if (!response.ok) throw new Error('❌ Неможливо завантажити атрибути')
 
-						if (['hobbies', 'personality', 'occupation'].includes(attrType)) {
-							if (!userAnswers.attributes[attrType])
-								userAnswers.attributes[attrType] = []
-							if (!userAnswers.attributes[attrType].includes(id)) {
-								userAnswers.attributes[attrType].push(id)
-							}
+					const result = await response.json()
+					if (!Array.isArray(result)) {
+						console.error('⚠️ Очікувався масив, але отримано:', result)
+						return
+					}
+
+					result.forEach(attr => {
+						if (!attr.type || !attr.label || !attr._id) return
+						const type = attr.type.toLowerCase()
+						if (!attributesMap[type]) attributesMap[type] = {}
+						attributesMap[type][attr.label.trim()] = attr._id
+					})
+				} catch (err) {
+					console.error('❌ Помилка під час отримання атрибутів:', err)
+					return
+				}
+
+				function handleAttributeClick(el) {
+					const stepContainer = el.closest('[data-attr]')
+					const attrTypeRaw = stepContainer?.dataset.attr
+					const attrType = attrTypeRaw?.toLowerCase()
+
+					if (!attrType) return
+
+					let label =
+						el.querySelector('.number-elips')?.textContent?.trim() ||
+						el.textContent?.trim()
+					if (!label) return
+
+					if (attrType === 'voice' && voiceLabelMap[label]) {
+						label = voiceLabelMap[label]
+					}
+
+					if (!attributesMap[attrType] || !attributesMap[attrType][label]) {
+						console.warn('⏭ Пропущено неіснуючий атрибут:', { attrType, label })
+						return
+					}
+
+					const id = attributesMap[attrType][label]
+
+					if (multiValueAttrs.includes(attrType)) {
+						if (!userAnswers.attributes[attrType])
+							userAnswers.attributes[attrType] = []
+
+						if (el.classList.contains('selected')) {
+							userAnswers.attributes[attrType] = userAnswers.attributes[
+								attrType
+							].filter(x => x !== id)
+						} else {
+							userAnswers.attributes[attrType].push(id)
+						}
+					} else {
+						if (el.classList.contains('selected')) {
+							delete userAnswers.attributes[attrType]
 						} else {
 							userAnswers.attributes[attrType] = id
 						}
+					}
 
-						el.classList.toggle('selected')
+					el.classList.toggle('selected')
+				}
+
+				document
+					.querySelectorAll(
+						'.wrapper-im, .item, .input.voice, .wrapper-personality'
+					)
+					.forEach(el => {
+						el.addEventListener('click', () => handleAttributeClick(el))
 					})
-				})
 
 				document.querySelector('.btnCont')?.addEventListener('click', () => {
 					const payload = { formBody: userAnswers }
 					const json = JSON.stringify(payload)
 					const base64 = btoa(unescape(encodeURIComponent(json)))
-					const url = `https://swipey.ai/create-ai?model-params=${base64}`
-					window.location.href = url
+
+					console.log('🧠 Payload:', payload)
+					console.log('🔐 Base64:', base64)
+					console.log(
+						'🌍 Redirect URL:',
+						`https://swipey.ai/create-ai?model-params=${base64}`
+					)
+
+					window.location.href = `https://swipey.ai/create-ai?model-params=${base64}`
 				})
 			})
 		</script>
